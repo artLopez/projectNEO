@@ -48,6 +48,8 @@ require "adminFunctions.php";
 </div>
 </body>
 <?php require "footer.php";?>
+
 <script src="http://maps.googleapis.com/maps/api/js"> </script>
 <script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/deleteEvacuee.js"></script>
 </html>

@@ -19,17 +19,16 @@ if(isset($_GET['action'])){
     }
     else if($_GET['action'] == "getAirportPoints"){
         getLatLong();
-    }else if($_GET['action'] == "delete"){
-        if(isset($_GET['id']) ){
+    }
+    else if($_GET['action'] == "delete"){
+        if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $sql = "DELETE FROM evacuee WHERE id=:id; ";
+            $sql = "DELETE FROM evacuee WHERE evacuee_id=:id; ";
             $dbconn = getConnection();
             $stmt = $dbconn->prepare($sql);
             $stmt->execute(array(":id" => $id));
 
         }
-
-
     }
 }
 function getEvacTables($mode){
@@ -54,11 +53,11 @@ function getEvacTables($mode){
             $surname = $record['surname'];
             $dateOfBirth = $record['date_of_birth'];
             $sex = $record['sex'];
-            echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>
-                <button type='button' class='btn btn-default' aria-label='Left Align' id='update_button'>
+            echo "<tr><td class='id'>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>
+                <button type='button' class='btn btn-default update_button' aria-label='Left Align'>
                 <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
                 </button>
-                <button type='button' class='btn btn-default' aria-label='Left Align' id='remove_button'>
+                <button type='button' class='btn btn-default remove_button'  aria-label='Left Align'>
                 <span class='glyphicon glyphicon-minus' aria-hidden='true'></span>
                 </button>
 </td></tr>";
