@@ -7,6 +7,7 @@ if (!isset($_SESSION['username'])){
 <html lang="en">
 
 <?php require "header.php";?>
+<link href="CSS/familystyles.css" type = "text/css" rel="stylesheet">
 <!-- Page Content -->
 <div class="container">
 
@@ -14,6 +15,15 @@ if (!isset($_SESSION['username'])){
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
+
+            <div class="row placeholders">
+                <div class="col-xs-6 col-sm-3 placeholder text-center">
+                    <img id='profile' src='<?=$_SESSION['profile_picture'] ?>' width='100px' class="center-block img-responsive img-circle">
+                    <h4><?=$_SESSION['username']?></h4>
+                    <span class="text-muted">Family Member</span>
+                </div>
+
+            </div>
 
             <h1 class="page-header">
                 My Messages

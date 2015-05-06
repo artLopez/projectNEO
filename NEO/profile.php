@@ -14,9 +14,6 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['roles']) ||
     header("Location: login.php");
 }
 
-if (!isset($_SESSION['username'])){
-    header("Location: login.php");
-}
 ?>
 
 <!DOCTYPE html>

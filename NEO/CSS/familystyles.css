@@ -1,0 +1,122 @@
+fieldset{
+background: white;
+}
+#pic{
+background: white;
+padding: 0 15px;
+border-radius: 20px;
+border-color: red;
+
+}
+legend{
+color: white;
+background: red;
+border-radius: 25px;
+}
+
+#header{
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+background: darkblue;
+border-radius: 20px;
+color: white;
+}
+
+.active{
+color: black;
+background: darkblue;
+}
+
+
+.container-fluid{
+
+background: url('flag.jpg') no-repeat center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.active{
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+.well{
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+background: url('flag.jpg') no-repeat center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+}
+#container{
+
+border-radius: 10px;
+
+padding:0 300px;
+}
+
+.page-header{
+background: darkblue;
+color: #ffffff;
+border-radius: 25px;
+}
+
+#wrapper{
+    align-items: center;
+    width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+h1{
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-align: center;
+    padding:10px;
+}
+
+.jumbotron{
+    border-radius: 10px;
+    padding:30px;
+
+}
+
+#login_form{
+    text-align: center;
+}
+
+#submit_button{
+    background: forestgreen;
+}
+
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    width:600px;
+}
+
+legend.scheduler-border {
+    width:200px;
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    width: 700px;
+}
+
+select  {
+    width: 100px;
+}
+
+label {
+    display: inline-block;
+    width:150px;
+    text-align: right;
+}
+
+
