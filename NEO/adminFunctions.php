@@ -19,22 +19,52 @@ if(isset($_GET['action'])){
     }
     else if($_GET['action'] == "getAirportPoints"){
         getLatLong();
+    }else if($_GET['action'] == "delete"){
+        if(isset($_GET['id']) ){
+            $id = $_GET['id'];
+            $sql = "DELETE FROM evacuee WHERE id=:id; ";
+            $dbconn = getConnection();
+            $stmt = $dbconn->prepare($sql);
+            $stmt->execute(array(":id" => $id));
+
+        }
+
+
     }
 }
-function getEvacTables(){
+function getEvacTables($mode){
     $dbconn = getConnection();
     $sql = "select evacuee_id, given_name, surname, date_of_birth, sex from evacuee";
     $stmt = $dbconn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($result as $record){
-        $evacueeId = $record['evacuee_id'];
-        $givenName = $record['given_name'];
-        $surname = $record['surname'];
-        $dateOfBirth = $record['date_of_birth'];
-        $sex = $record['sex'];
-        echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>$sex</td></tr>";
+    if($mode == "regular"){
+        foreach ($result as $record){
+            $evacueeId = $record['evacuee_id'];
+            $givenName = $record['given_name'];
+            $surname = $record['surname'];
+            $dateOfBirth = $record['date_of_birth'];
+            $sex = $record['sex'];
+            echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>$sex</td></tr>";
+        }
+    }elseif($mode == "update"){
+        foreach ($result as $record){
+            $evacueeId = $record['evacuee_id'];
+            $givenName = $record['given_name'];
+            $surname = $record['surname'];
+            $dateOfBirth = $record['date_of_birth'];
+            $sex = $record['sex'];
+            echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>
+                <button type='button' class='btn btn-default' aria-label='Left Align' id='update_button'>
+                <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
+                </button>
+                <button type='button' class='btn btn-default' aria-label='Left Align' id='remove_button'>
+                <span class='glyphicon glyphicon-minus' aria-hidden='true'></span>
+                </button>
+</td></tr>";
+        }
     }
+
 }
 
 
@@ -46,18 +76,8 @@ function getLatLong(){
     $stmt = $dbConn2->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //$result = utf8_encode($result);
     $records = json_encode(utf8ize($result));
     echo $records;
-
-    /*
-    foreach ($result as $record){
-        $airportId = $record['ID'];
-        $latitude = $record['latitude'];
-        $longitude= $record['longitude'];
-
-        echo "<tr><td>$airportId</td><td> &nbsp; </td><td>$latitude</td><td> &nbsp; </td<td>$longitude</td></tr><br>";
-    } */
 }
 function utf8ize($d){
     if(is_array($d)){
@@ -69,20 +89,5 @@ function utf8ize($d){
     }
 
     return $d;
-}
-
-function deleteEvacuees(){
-    //$sql = "select evacuee_id, given_name, surname, date_of_birth, sex from evacuee";
-    //$stmt = $dbconn3->prepare($sql);
-    //$stmt->execute();
-    //$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //foreach ($result as $record){
-    //    $evacueeId = $record['evacuee_id'];
-    //    $givenName = $record['given_name'];
-    //    $surname = $record['surname'];
-    //    $dateOfBirth = $record['date_of_birth'];
-    //    $sex = $record['sex'];
-    //    echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>$sex</td><button>Delete</button></tr>";
-    //}
 }
 

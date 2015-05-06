@@ -56,7 +56,7 @@ require "adminFunctions.php";
               </thead>
               <tbody>
                 <?php
-                    getEvacTables();
+                    getEvacTables("regular");
                 ?>
               </tbody>
             </table>

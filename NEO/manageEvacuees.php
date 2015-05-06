@@ -11,7 +11,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require "header.php"; ?>
+<?php require "header.php";
+require "mysqlConfig.php";
+require "adminFunctions.php";
+?>
 <style>div#googleMap { border-radius: 15px; margin: 0 auto 0 auto; }</style>
 <body class = "container-fluid" >
 <?php require "navbar.php"; ?>
@@ -33,11 +36,11 @@
                     <th>Given Name</th>
                     <th>Surname</th>
                     <th>Date of Birth</th>
-                    <th>Sex</th>
+                    <th>Update/Remove</th>
                 </tr>
                 </thead>
                 <tbody>
-
+                    <?php getEvacTables("update");?>
                 </tbody>
             </table>
         </div>
