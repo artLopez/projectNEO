@@ -31,6 +31,17 @@ if(isset($_GET['action'])){
         }
     }
     else if($_GET['action'] == "update"){
+        if(isset($_GET['firstName']) && isset($_GET['lastName']) && isset($_GET['dob']) && isset($_GET['id'])){
+            $id = $_GET['id'];
+            $firstName = $_GET['firstName'];
+            $lastName = $_GET['lastName'];
+            $dob = $_GET['dob'];
+
+            $sql = "UPDATE `evacuee` SET `surname`= :lastName ,`given_name`= :firstName,`date_of_birth`= :dob, WHERE id = :id";
+            $dbconn = getConnection();
+            $stmt = $dbconn->prepare($sql);
+            $stmt->execute(array(":id" => $id, ":lastName" => $lastName, ":firstName" => $firstName, ":dob" => $dob));
+        }
 
     }
 }
@@ -94,6 +105,7 @@ function utf8ize($d){
 
     return $d;
 }
+
 
 
 
