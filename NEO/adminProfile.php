@@ -16,6 +16,8 @@ if (!isset($_SESSION['username'])){
 }
 require "adminFunctions.php";
 //    echo "<img id='profile' src=" . $_SESSION['profile_picture'] . " width = 200px>";
+
+
 ?>
 <link href="css/styles.css" rel="stylesheet" />
 <div class="container-fluid">
@@ -34,7 +36,7 @@ require "adminFunctions.php";
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder text-center">
                 <img id='profile' src='<?=$_SESSION['profile_picture'] ?>' width='100px' class="center-block img-responsive img-circle">
-              <h4><?$_SESSION['username']?></h4>
+              <h4><?=$_SESSION['username']?></h4>
               <span class="text-muted">Admin</span>
             </div>
 

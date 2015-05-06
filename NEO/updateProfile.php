@@ -5,9 +5,6 @@
  * Date: 4/28/15
  * Time: 10:19 PM
  */
-if (!isset($_SESSION['username'])){
-    header("Location: login.php");
-}
 require "mysqlConfig.php";
 session_start();
 if (isset($_POST['uploadForm'])) {
@@ -44,7 +41,7 @@ if (isset($_POST['uploadForm'])) {
         $namedParameters = array();
 
         $namedParameters[":username"] = $_SESSION['username'];
-        $namedParameters[":profilePicture"] = $_FILES['fileName']['name'];
+        $namedParameters[":profilePicture"] = $path . '/' .  $_FILES['fileName']['name'];
 
         $stmt = $dbConn->prepare($sql);
         $stmt->execute($namedParameters);
@@ -58,9 +55,10 @@ if (isset($_POST['uploadForm'])) {
 
         $stmt = $dbConn->prepare($sql);
         $stmt->execute($namedParameters);
-        $result = $stmt->fetch();
-
-        $pic = $result[0];
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['profile_picture'] = $result[0]['profile_picture'];
+        header("Location: profile.php");
+        //print_r($result);
     }
 
 }
