@@ -30,6 +30,9 @@ if(isset($_GET['action'])){
 
         }
     }
+    else if($_GET['action'] == "update"){
+
+    }
 }
 function getEvacTables($mode){
     $dbconn = getConnection();
@@ -53,19 +56,21 @@ function getEvacTables($mode){
             $surname = $record['surname'];
             $dateOfBirth = $record['date_of_birth'];
             $sex = $record['sex'];
-            echo "<tr><td class='id'>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>
+            echo "<tr>
+                <td class='id'>$evacueeId</td><td class='givenName'>$givenName</td>
+                <td class='surname'>$surname</td> <td class='dob'>$dateOfBirth</td><td>
                 <button type='button' class='btn btn-default update_button' aria-label='Left Align'>
                 <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
                 </button>
                 <button type='button' class='btn btn-default remove_button'  aria-label='Left Align'>
                 <span class='glyphicon glyphicon-minus' aria-hidden='true'></span>
                 </button>
-</td></tr>";
+            </td></tr>";
         }
+
     }
 
 }
-
 
 
 function getLatLong(){
@@ -89,4 +94,6 @@ function utf8ize($d){
 
     return $d;
 }
+
+
 
