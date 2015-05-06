@@ -9,8 +9,8 @@ require "mysqlConfig.php";
 session_start();
 if (isset($_POST['uploadForm'])) {
 
-    echo $_FILES['fileName']['size'];
-    echo $_FILES['fileName']['type'];
+    //echo $_FILES['fileName']['size'];
+    //echo $_FILES['fileName']['type'];
 
     $imageType = exif_imagetype($_FILES['fileName']['tmp_name']); //Returns 1, 2 or 3 for gif,jpg or png respectively
 
