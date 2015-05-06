@@ -1,3 +1,59 @@
+fieldset{
+    background: white;
+}
+#pic{
+    background: white;
+    padding: 0 15px;
+    border-radius: 20px;
+    border-color: red;
+
+}
+legend{
+    color: white;
+    background: red;
+    border-radius: 25px;
+}
+
+#header{
+    background: darkblue;
+    border-radius: 20px;
+    color: white;
+}
+
+.active{
+    color: black;
+    background: darkblue;
+}
+
+
+.container-fluid{
+    background: url('flag.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.well{
+    background: url('flag.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+#container{
+
+    border-radius: 10px;
+
+    padding:0 300px;
+}
+
+.page-header{
+    background: darkblue;
+    color: #ffffff;
+    border-radius: 25px;
+}
+
 #wrapper{
 	align-items: center;
 	 width: 900px;
@@ -8,13 +64,17 @@ h1{
    text-align: center;
    padding:10px;
 }
+
 .jumbotron{
     border-radius: 10px;
     padding:30px;
+
 }
+
 #login_form{
     text-align: center;
 }
+
 #submit_button{
     background: forestgreen;
 }
@@ -36,6 +96,7 @@ legend.scheduler-border {
     margin: 0 auto;
     width: 700px;
 }
+
 select  {
     width: 100px;
 }

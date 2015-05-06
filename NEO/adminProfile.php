@@ -11,9 +11,24 @@ if(!isset($_SESSION['username'])){
     header("Location: login.html");
 }
 */
-
+if (!isset($_SESSION['username'])){
+    header("Location: login.php");
+}
 require "adminFunctions.php";
+
+function getPicture(){
+    $dbConn = getConnection();
+    $sql = "select first_name, last_name, profile_picture from users";
+    $stmt = $dbConn->prepare($sql);
+    $stmt->execute();
+
+    $result = $stmt->fetchAll();
+
+    return $result;
+}
+//    echo "<img id='profile' src=" . $_SESSION['profile_picture'] . " width = 200px>";
 ?>
+<link href="css/styles.css" rel="stylesheet" />
 <div class="container-fluid">
       <div class="row row-offcanvas row-offcanvas-left">
           <?php require "taskPanel.php"?>
@@ -29,25 +44,11 @@ require "adminFunctions.php";
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder text-center">
-                <img id='profile' src='<?=$_SESSION['profile_picture']?>' width='100px' class="center-block img-responsive img-circle">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+                <img id='profile' src='<?=$_GET['profile_picture'] ?>' width='100px' class="center-block img-responsive img-circle">
+              <h4><?$_SESSION['username']?></h4>
+              <span class="text-muted">Admin</span>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder text-center">
-              <img src="//placehold.it/200/66ff66/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder text-center">
-              <img src="//placehold.it/200/6666ff/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder text-center">
-              <img src="//placehold.it/200/66ff66/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
+
           </div>
 
           <hr>

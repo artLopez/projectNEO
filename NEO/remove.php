@@ -2,20 +2,18 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: arturolopez
+ * User: devonrusconi
  * Date: 4/29/15
  * Time: 12:09 PM
  */
-
 require 'mysqlConfig.php';
 $dbConn = getConnection();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if(isset($_POST['birthday'])){
         //need to add profile picture
-        $sql = "INSERT INTO evacuee (`surname`,`given_name`,`nationality`, `date_of_birth`, `place_of_birth`, `date_of_issue`, `date_of_expiration`,
-         `sex`, `authority`) VALUES (:surname, :given_name, :nationality,:date_of_birth,:place_of_birth,:date_of_issue,
-         :date_of_expiration,:sex,:authority)";
+        $sql = "DELETE (`surname`,`given_name`,`nationality`, `date_of_birth`, `place_of_birth`, `date_of_issue`, `date_of_expiration`,
+         `sex`, `authority`) FROM 'evacuee' WHERE ";
 
         $namedParameters = array();
         $namedParameters[":surname"]        = $_POST['surname'];

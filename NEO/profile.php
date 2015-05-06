@@ -17,6 +17,10 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['roles']) ||
     !isset($_SESSION['profile_picture'])) {
     header("Location: login.php");
 }
+
+if (!isset($_SESSION['username'])){
+    header("Location: login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +36,12 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['roles']) ||
                    require "adminProfile.php";
                }
            }
+
+       if(!empty($_SESSION['roles'])){
+           if(strpos($_SESSION['roles'], "FAMILY") !== false){
+               require "familyProfile.php";
+           }
+       }
       ?>
     </div>
 </body>

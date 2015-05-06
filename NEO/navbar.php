@@ -22,8 +22,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.php">Home<span class="sr-only"></span></a></li>
-        <li><a href="profile.php">Profile</a></li>
+        <li><a class="active" href="index.php">Home<span class="sr-only"></span></a></li>
+        <li><a class="active" href="profile.php">Profile</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -34,9 +34,9 @@
       <ul class="nav navbar-nav navbar-right">
           <?php
           if(isset($_SESSION['username'])){
-              echo "<li><a href='logout.php'>Logout</a></li>";
+              echo "<li><a class='active' href='logout.php'>Logout</a></li>";
           }else{
-              echo '<li><a href="login.php">Login</a></li>';
+              echo '<li><a class="active" href="login.php">Login</a></li>';
           }?>
 
 

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
-<?php require "header.php"; ?>
+<?php
+
+require "header.php";
+
+?>
 
 
 
 <body>
     <?php require "navbar.php"; ?>
-
+    <link href="css/styles.css" rel="stylesheet" />
     <div class="container-fluid">
-
+        <?php require "taskPanel.php"?>
         <div class="row row-offcanvas row-offcanvas-left">
-            <?php require "taskPanel.php"?>
-            <div align="center">
-                 <h1>Create Evacuee</h1>
+
+            <div id= "container" align="center">
+                 <h1 id="header">Create Evacuee</h1>
                 <form action = "signUp.php"  method = "POST" >
                     <fieldset class="scheduler-border">
                         <legend class="scheduler-border">Registration</legend>

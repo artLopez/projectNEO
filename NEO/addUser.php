@@ -4,7 +4,10 @@
  * User: edsan
  * Date: 5/3/15
  * Time: 4:40 PM
- */?>
+ */
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,9 +19,9 @@
 
     <div class="row row-offcanvas row-offcanvas-left">
         <?php require "taskPanel.php"?>
-        <div align="center">
-            <h1>Create User</h1>
-            <form action="signUpUser.php" class="form-horizontal" method="POST" id="addUserForm" name="addUserForm">
+        <div id= "container" align="center">
+            <h1 id = "header">Create User</h1>
+            <form  action="signUpUser.php" class="form-horizontal" method="POST" id="addUserForm" name="addUserForm">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Registration</legend>
                     <div class="form-group">

@@ -5,13 +5,18 @@
  * Date: 4/28/15
  * Time: 10:19 PM
  */
+if (!isset($_SESSION['username'])){
+    header("Location: login.php");
+}
+require "mysqlConfig.php";
+session_start();
 if (isset($_POST['uploadForm'])) {
 
     echo $_FILES['fileName']['size'];
     echo $_FILES['fileName']['type'];
 
     $imageType = exif_imagetype($_FILES['fileName']['tmp_name']); //Returns 1, 2 or 3 for gif,jpg or png respectively
-    echo $imageType;
+
 
     if($imageType != 1 AND $imageType != 2 AND $imageType != 3)
     {
@@ -23,20 +28,19 @@ if (isset($_POST['uploadForm'])) {
     else
     {
 
-
-        $path = "img/" . $_SESSION['username'];
+        $path = "img/admin";
 
 
         echo "<br>";
 
-        echo $path;
 
         if (!file_exists($path) ) { //checks whether user's folder exists
             mkdir($path);
         }
         move_uploaded_file($_FILES['fileName']['tmp_name'], $path . '/' .  $_FILES['fileName']['name'] );
-        $sql = "UPDATE lab7_user SET profilePicture = :profilePicture WHERE username = :username";
+        $sql = "UPDATE users SET profile_picture = :profilePicture WHERE username = :username";
 
+        $dbConn = getConnection();
         $namedParameters = array();
 
         $namedParameters[":username"] = $_SESSION['username'];
@@ -46,7 +50,7 @@ if (isset($_POST['uploadForm'])) {
         $stmt->execute($namedParameters);
 
 
-        $sql = "SELECT profilePicture FROM lab7_user WHERE username = :username";
+        $sql = "SELECT profile_picture FROM users WHERE username = :username";
 
         $namedParameters = array();
 

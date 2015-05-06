@@ -1,10 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: edsan
+ * User: edsan and devonrusconi
  * Date: 5/3/15
  * Time: 4:04 PM
- */?>
+ */
+
+?>
 
 
 <!DOCTYPE html>
@@ -17,10 +19,10 @@
     <div class="row row-offcanvas row-offcanvas-left">
         <?php require "taskPanel.php"?>
 
-        <div align="center">
-            <h1>Update Profile</h1>
-            <form method="post" enctype="multipart/form-data" action="updateProfile.php">
-                Select image: <input type="file" name="fileName" /> <br />
+        <div id = "container" align="center">
+            <h1 id = "header">Update Profile</h1>
+            <form id = "pic" method="post" enctype="multipart/form-data" action="updateProfile.php">
+                Select image: <input type="file" name="fileName" /><br />
                 <input type="submit" name="uploadForm"/>
                 <br />
             </form>
