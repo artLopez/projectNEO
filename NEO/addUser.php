@@ -21,7 +21,7 @@
         <?php require "taskPanel.php"?>
         <div id= "container" align="center">
             <h1 id = "header">Create User</h1>
-            <form  action="signUpUser.php" class="form-horizontal" method="POST" id="addUserForm" name="addUserForm">
+            <form  action="signUpUser.php" class="form-horizontal" method="POST" id="addUserForm" enctype="multipart/form-data" name="addUserForm">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Registration</legend>
                     <div class="form-group">
@@ -55,7 +55,7 @@
                         <input type="file" name="profile_picture" id="profile_picture" required/>
                     </div>
                     <div class="form-group">
-                        <select form="addUserForm" class="form-control" id="roles_select">
+                        <select form="addUserForm" class="form-control" id="roles_select" name="role_select">
                         </select>
                     </div>
                     <div class="form-group">
