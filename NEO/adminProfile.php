@@ -15,17 +15,6 @@ if (!isset($_SESSION['username'])){
     header("Location: login.php");
 }
 require "adminFunctions.php";
-
-function getPicture(){
-    $dbConn = getConnection();
-    $sql = "select first_name, last_name, profile_picture from users";
-    $stmt = $dbConn->prepare($sql);
-    $stmt->execute();
-
-    $result = $stmt->fetchAll();
-
-    return $result;
-}
 //    echo "<img id='profile' src=" . $_SESSION['profile_picture'] . " width = 200px>";
 ?>
 <link href="css/styles.css" rel="stylesheet" />
@@ -44,7 +33,7 @@ function getPicture(){
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder text-center">
-                <img id='profile' src='<?=$_GET['profile_picture'] ?>' width='100px' class="center-block img-responsive img-circle">
+                <img id='profile' src='<?=$_SESSION['profile_picture'] ?>' width='100px' class="center-block img-responsive img-circle">
               <h4><?$_SESSION['username']?></h4>
               <span class="text-muted">Admin</span>
             </div>

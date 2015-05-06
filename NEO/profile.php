@@ -7,10 +7,6 @@ if(!isset($_SESSION['username'])){
     header("Location: login.html");
 }
 */
-
-$dbConn = getConnection();
-
-
 session_start();
 
 if (!isset($_SESSION['username']) || !isset($_SESSION['roles']) ||

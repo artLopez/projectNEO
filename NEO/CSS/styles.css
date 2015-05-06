@@ -1,58 +1,58 @@
-fieldset{
-    background: white;
-}
-#pic{
-    background: white;
-    padding: 0 15px;
-    border-radius: 20px;
-    border-color: red;
+/*fieldset{*/
+    /*background: white;*/
+/*}*/
+/*#pic{*/
+    /*background: white;*/
+    /*padding: 0 15px;*/
+    /*border-radius: 20px;*/
+    /*border-color: red;*/
 
-}
-legend{
-    color: white;
-    background: red;
-    border-radius: 25px;
-}
+/*}*/
+/*legend{*/
+    /*color: white;*/
+    /*background: red;*/
+    /*border-radius: 25px;*/
+/*}*/
 
-#header{
-    background: darkblue;
-    border-radius: 20px;
-    color: white;
-}
+/*#header{*/
+    /*background: darkblue;*/
+    /*border-radius: 20px;*/
+    /*color: white;*/
+/*}*/
 
-.active{
-    color: black;
-    background: darkblue;
-}
+/*.active{*/
+    /*color: black;*/
+    /*background: darkblue;*/
+/*}*/
 
 
-.container-fluid{
-    background: url('flag.jpg') no-repeat center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.well{
-    background: url('flag.jpg') no-repeat center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+/*.container-fluid{*/
+    /*background: url('flag.jpg') no-repeat center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+/*}*/
+/*.well{*/
+    /*background: url('flag.jpg') no-repeat center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
 
-}
-#container{
+/*}*/
+/*#container{*/
 
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 
-    padding:0 300px;
-}
+    /*padding:0 300px;*/
+/*}*/
 
-.page-header{
-    background: darkblue;
-    color: #ffffff;
-    border-radius: 25px;
-}
+/*.page-header{*/
+    /*background: darkblue;*/
+    /*color: #ffffff;*/
+    /*border-radius: 25px;*/
+/*}*/
 
 #wrapper{
 	align-items: center;

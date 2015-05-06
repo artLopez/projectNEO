@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         } else {
 
             $_SESSION["username"] = $result["username"];
-            $_SESSION["profile_picture"] = "ffd";
+            $_SESSION["profile_picture"] = $result['profile_picture'];
             $_SESSION['roles'] = $result['role_function'];
             header("Location: profile.php");
         }

@@ -22,7 +22,6 @@ if(isset($_GET['action'])){
     }
 }
 function getEvacTables(){
-    require "mysqlConfig.php";
     $dbconn = getConnection();
     $sql = "select evacuee_id, given_name, surname, date_of_birth, sex from evacuee";
     $stmt = $dbconn->prepare($sql);
@@ -73,19 +72,17 @@ function utf8ize($d){
 }
 
 function deleteEvacuees(){
-    require "mysqlConfig.php";
-    $dbconn3 = getConnection();
-    $sql = "select evacuee_id, given_name, surname, date_of_birth, sex from evacuee";
-    $stmt = $dbconn3->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($result as $record){
-        $evacueeId = $record['evacuee_id'];
-        $givenName = $record['given_name'];
-        $surname = $record['surname'];
-        $dateOfBirth = $record['date_of_birth'];
-        $sex = $record['sex'];
-        echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>$sex</td><button>Delete</button></tr>";
-    }
+    //$sql = "select evacuee_id, given_name, surname, date_of_birth, sex from evacuee";
+    //$stmt = $dbconn3->prepare($sql);
+    //$stmt->execute();
+    //$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //foreach ($result as $record){
+    //    $evacueeId = $record['evacuee_id'];
+    //    $givenName = $record['given_name'];
+    //    $surname = $record['surname'];
+    //    $dateOfBirth = $record['date_of_birth'];
+    //    $sex = $record['sex'];
+    //    echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>$sex</td><button>Delete</button></tr>";
+    //}
 }
 
