@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])){
 <html lang="en">
 
 <?php require "header.php";?>
-<link href="CSS/familystyles.css" type = "text/css" rel="stylesheet">
+<link href="css/familystyles.css" type = "text/css" rel="stylesheet">
 <!-- Page Content -->
 <div class="container">
 
