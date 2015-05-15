@@ -26,12 +26,12 @@
                     <legend class="scheduler-border">Registration</legend>
                     <div class="form-group">
                         <label for="username" class="control-label">Username:</label>
-                        <input type="text" name="username" id="username"required>
+                        <input type="text" name="username" id="username" required>
                         <br><span id="usernameError"></span>
                     </div>
                     <div class="form-group">
                         <label for="password" class="control-label">Password:</label>
-                        <input type="text" name="password" id="password" required>
+                        <input type="password" name="password" id="password" required>
                     </div>
                     <div class="form-group">
                         <label for="first_name" class="control-label">First Name:</label>
