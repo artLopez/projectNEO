@@ -37,7 +37,7 @@ if(isset($_GET['action'])){
             $lastName = $_GET['lastName'];
             $dob = $_GET['dob'];
 
-            $sql = "UPDATE `evacuee` SET `surname`= :lastName ,`given_name`= :firstName,`date_of_birth`= :dob, WHERE id = :id";
+            $sql = "UPDATE `evacuee` SET `surname`= :lastName ,`given_name`= :firstName,`date_of_birth`= :dob WHERE evacuee_id = :id";
             $dbconn = getConnection();
             $stmt = $dbconn->prepare($sql);
             $stmt->execute(array(":id" => $id, ":lastName" => $lastName, ":firstName" => $firstName, ":dob" => $dob));
@@ -106,6 +106,24 @@ function utf8ize($d){
     return $d;
 }
 
+function getAvg(){
+    $dbconn = getConnection();
+    $sql = "SELECT COUNT(sex) AS COUNT FROM `evacuee` GROUP BY sex";
+    $stmt = $dbconn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
 
 
+function airportCount(){
+    $dbconn = getConnection();
+    $sql = " SELECT COUNT(DISTINCT id) AS COUNT FROM `airports`";
+    $stmt = $dbconn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch();
+
+    return $result;
+}
 

@@ -56,47 +56,28 @@ function updateEvacuee(){
     row.cells[1].innerHTML  = "<input type='text' id = 'firstName' value='"+firstName+"'/>";
     row.cells[2].innerHTML  = "<input type='text' id = 'lastName' value='"+lastName+"'/>";
     row.cells[3].innerHTML  = "<input type='date' id = 'dob' value='"+dob+"'/>";
-    row.cells[4].innerHTML = "<button type = 'button' class = 'glyphicon glyphicon-ok update' aria-label = 'Left Align' onclick='updated()'></button>";
+    row.cells[4].innerHTML = "<button type = 'button' class = 'glyphicon glyphicon-ok update' " +
+                              "aria-label = 'Left Align' onclick='updated()'></button>";
 }
 
 function updated() {
-    var button1 = "<button type='button' class='btn btn-default update_button' aria-label='Left Align'> <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button>";
-    var button2 = "<button type='button' class='btn btn-default remove_button'  aria-label='Left Align'> <span class='glyphicon glyphicon-minus' aria-hidden='true'></span> </button>";
+    var button1 = "<button type='button' class='btn btn-default update_button' aria-label='Left Align'>" +
+                  "<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button>";
+    var button2 = "<button type='button' class='btn btn-default remove_button'  aria-label='Left Align'> " +
+                  "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span> </button>";
 
     var updatedFirstName = $("#firstName").val();
     var updatedLastName = $("#lastName").val();
     var updatedDOB = $("#dob").val();
     var data = {};
-    console.log(firstName);
-    console.log(lastName);
-    console.log(dob);
-    console.log(id);
-    console.log();
-    console.log(updatedFirstName);
-    console.log(updatedLastName);
-    console.log(updatedDOB);
-    console.log(id);
 
     row.cells[1].innerHTML  = updatedFirstName;
     row.cells[2].innerHTML  = updatedLastName;
     row.cells[3].innerHTML  = updatedDOB;
     row.cells[4].innerHTML = button1 + button2;
 
-    if(updatedFirstName != firstName && updatedLastName != lastName  && dob != updatedDOB){
-        data = {firstName: updatedFirstName, lastName: updatedLastName, dob: updatedDOB, id: id,action: "update"};
-    }
-    else if(updatedFirstName == firstName && updatedLastName == lastName  && dob != updatedDOB){
-        data = {lastName: updatedLastName, dob: updatedDOB,id: id,action: "update"};
-    }
-    else if(updatedFirstName == firstName && updatedLastName == lastName  && dob != updatedDOB){
-        data = {dob: updatedDOB,id: id, action: "update"};
-    }
-    else if(updatedFirstName != firstName && updatedLastName == lastName  && dob != updatedDOB){
-        data = {firstName: updatedFirstName, dob: updatedDOB,id: id, action: "update"};
-    }
-    else if(updatedFirstName != firstName && updatedLastName != lastName  && dob == updatedDOB){
-        data = {firstName: updatedFirstName, lastName: updatedLastName,id: id, action: "update"};
-    }
+    data = {firstName: updatedFirstName, lastName: updatedLastName, dob: updatedDOB, id: id,action: "update"};
+
     $.ajax({
         url:"adminFunctions.php",
         type:"GET",
@@ -112,7 +93,7 @@ function updated() {
         },
         complete: function( xhr, status ) {
             //alert( "The request is complete!" );
-          //  location.reload();
+            location.reload();
         }
     });
 

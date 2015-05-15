@@ -5,7 +5,7 @@
  * Date: 5/3/15
  * Time: 4:04 PM
  */
-
+    session_start();
 ?>
 
 
@@ -31,5 +31,6 @@
 </div>
 </body>
 <?php require "footer.php";?>
+
 </html>
 

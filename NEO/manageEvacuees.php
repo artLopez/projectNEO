@@ -6,6 +6,8 @@
  * Date: 5/4/15
  * Time: 1:05 PM
  */
+session_start();
+
 ?>
 
 

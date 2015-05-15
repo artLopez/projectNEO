@@ -1,9 +1,11 @@
+<?php   session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <?php require "header.php";?>
 <body>
     <?php require "navbar.php";?>
-    <h1>Project Neo</h1>
+    <h1>Project NEO</h1>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
