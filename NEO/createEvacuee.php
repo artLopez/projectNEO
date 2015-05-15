@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <?php
@@ -5,8 +6,6 @@
 require "header.php";
 
 ?>
-
-
 
 <body>
     <?php require "navbar.php"; ?>

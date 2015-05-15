@@ -17,6 +17,8 @@ if (!isset($_SESSION['username'])){
 require "adminFunctions.php";
 //    echo "<img id='profile' src=" . $_SESSION['profile_picture'] . " width = 200px>";
 
+$avg = getAvg();
+$airport = airportCount();
 
 ?>
 <link href="css/styles.css" rel="stylesheet" />
@@ -36,11 +38,17 @@ require "adminFunctions.php";
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder text-center">
                 <img id='profile' src='<?=$_SESSION['profile_picture'] ?>' width='100px' class="center-block img-responsive img-circle">
-              <h4><?=$_SESSION['username']?></h4>
+
+
+                <h4><?=$_SESSION['username']?></h4>
               <span class="text-muted">Admin</span>
             </div>
 
           </div>
+
+            <?php echo "Count on gender: Men : ".$avg[1]['COUNT']." Women: " . $avg[0]['COUNT'] ;
+                  echo "<br>Number of Airports: " . $airport[0];
+            ?>
 
           <hr>
 

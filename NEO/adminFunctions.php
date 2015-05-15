@@ -19,16 +19,29 @@ if(isset($_GET['action'])){
     }
     else if($_GET['action'] == "getAirportPoints"){
         getLatLong();
-    }else if($_GET['action'] == "delete"){
-        if(isset($_GET['id']) ){
+    }
+    else if($_GET['action'] == "delete"){
+        if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $sql = "DELETE FROM evacuee WHERE id=:id; ";
+            $sql = "DELETE FROM evacuee WHERE evacuee_id=:id; ";
             $dbconn = getConnection();
             $stmt = $dbconn->prepare($sql);
             $stmt->execute(array(":id" => $id));
 
         }
+    }
+    else if($_GET['action'] == "update"){
+        if(isset($_GET['firstName']) && isset($_GET['lastName']) && isset($_GET['dob']) && isset($_GET['id'])){
+            $id = $_GET['id'];
+            $firstName = $_GET['firstName'];
+            $lastName = $_GET['lastName'];
+            $dob = $_GET['dob'];
 
+            $sql = "UPDATE `evacuee` SET `surname`= :lastName ,`given_name`= :firstName,`date_of_birth`= :dob WHERE evacuee_id = :id";
+            $dbconn = getConnection();
+            $stmt = $dbconn->prepare($sql);
+            $stmt->execute(array(":id" => $id, ":lastName" => $lastName, ":firstName" => $firstName, ":dob" => $dob));
+        }
 
     }
 }
@@ -54,19 +67,21 @@ function getEvacTables($mode){
             $surname = $record['surname'];
             $dateOfBirth = $record['date_of_birth'];
             $sex = $record['sex'];
-            echo "<tr><td>$evacueeId</td><td>$givenName</td><td>$surname</td><td>$dateOfBirth</td><td>
-                <button type='button' class='btn btn-default' aria-label='Left Align' id='update_button'>
+            echo "<tr>
+                <td class='id'>$evacueeId</td><td class='givenName'>$givenName</td>
+                <td class='surname'>$surname</td> <td class='dob'>$dateOfBirth</td><td>
+                <button type='button' class='btn btn-default update_button' aria-label='Left Align'>
                 <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
                 </button>
-                <button type='button' class='btn btn-default' aria-label='Left Align' id='remove_button'>
+                <button type='button' class='btn btn-default remove_button'  aria-label='Left Align'>
                 <span class='glyphicon glyphicon-minus' aria-hidden='true'></span>
                 </button>
-</td></tr>";
+            </td></tr>";
         }
+
     }
 
 }
-
 
 
 function getLatLong(){
@@ -89,5 +104,26 @@ function utf8ize($d){
     }
 
     return $d;
+}
+
+function getAvg(){
+    $dbconn = getConnection();
+    $sql = "SELECT COUNT(sex) AS COUNT FROM `evacuee` GROUP BY sex";
+    $stmt = $dbconn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+
+function airportCount(){
+    $dbconn = getConnection();
+    $sql = " SELECT COUNT(DISTINCT id) AS COUNT FROM `airports`";
+    $stmt = $dbconn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch();
+
+    return $result;
 }
 
